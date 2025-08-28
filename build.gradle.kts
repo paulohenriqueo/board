@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("application")
 }
 
 group = "br.com.dio"
@@ -14,7 +15,13 @@ dependencies {
     implementation("mysql:mysql-connector-java:8.0.33")
     implementation("org.projectlombok:lombok:1.18.34")
 
+    compileOnly ("org.projectlombok:lombok:1.18.30")
     annotationProcessor("org.projectlombok:lombok:1.18.34")
+
+}
+
+application {
+    mainClass.set("br.com.dio.test.TestDatabaseConnection") // ← CLASSE PRINCIPAL
 }
 
 tasks.test {
